@@ -1,0 +1,38 @@
+{
+  "name": "mapbox-gl-js-animations",
+  "version": "1.0.0",
+  "description": "Spec & Implementation of animations for Mapbox GL JS",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "storybook": "start-storybook -s ./.storybook/public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jutaz/mapbox-gl-js-animations.git"
+  },
+  "keywords": [
+    "mapbox",
+    "animations",
+    "anime",
+    "anime.js"
+  ],
+  "author": "Justas \"jutaz\" Brazauskas",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/jutaz/mapbox-gl-js-animations/issues"
+  },
+  "homepage": "https://github.com/jutaz/mapbox-gl-js-animations#readme",
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@storybook/addon-knobs": "^5.2.5",
+    "@storybook/html": "^5.2.5",
+    "babel-loader": "^8.0.6",
+    "jest": "^24.9.0",
+    "jest-runner-eslint": "^0.7.5",
+    "mapbox-gl": "^1.5.0"
+  },
+  "dependencies": {
+    "animejs": "^3.1.0"
+  }
+}
