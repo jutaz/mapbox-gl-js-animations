@@ -1,0 +1,141 @@
+{
+  "version": 8,
+  "metadata": {},
+  "transition": {
+    "duration": 0,
+    "delay": 0
+  },
+  "sources": {
+    "point": {
+      "type": "geojson",
+      "generateId": true,
+      "data": {
+        "type": "FeatureCollection",
+        "features": [
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                3.075, 0
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                3.075, -1
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                3.075, -2
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                3.075, -3
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                3.075, -4
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+  "layers": [
+    {
+      "id": "background",
+      "type": "background",
+      "paint": {
+        "background-color": "#dce3ba"
+      }
+    },
+    {
+      "id": "point",
+      "source": "point",
+      "type": "circle",
+      "paint": {
+        "circle-radius": 18,
+        "circle-radius-transition": {"duration": 0},
+        "circle-opacity-transition": {"duration": 0},
+        "circle-color": "red"
+      }
+    },
+    {
+      "id": "pulsing-point",
+      "source": "point",
+      "type": "circle",
+      "metadata": {
+        "animations": [
+          {
+            "rules": {
+              "radius": 100,
+              "opacity": 0,
+              "duration": 1500,
+              "loop": true,
+              "autoplay": true,
+              "easing": "easeInOutQuart"
+            },
+            "variables": {
+              "radius": 0,
+              "opacity": 0.9
+            },
+            "paint": {
+              "circle-radius": [
+                "interpolate",
+                [
+                  "exponential",
+                  2
+                ],
+                [
+                  "zoom"
+                ],
+                0,
+                ["*", 0.3659277593, ["var", "radius"]],
+                24,
+                ["*", 6139249.05756877, ["var", "radius"]]
+              ],
+              "circle-opacity": ["var", "opacity"]
+            }
+          }
+        ]
+      },
+      "paint": {
+        "circle-radius": [
+          "interpolate",
+          [
+            "exponential",
+            2
+          ],
+          [
+            "zoom"
+          ],
+          0,
+          0.3659277593,
+          24,
+          6139249.05756877
+        ],
+        "circle-color": "red"
+      }
+    }
+  ]
+}
