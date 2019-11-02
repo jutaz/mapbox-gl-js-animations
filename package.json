@@ -2,10 +2,14 @@
   "name": "mapbox-gl-js-animations",
   "version": "1.0.0",
   "description": "Spec & Implementation of animations for Mapbox GL JS",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "browser": "dist/mapbox-gl-animations.web.js",
   "scripts": {
     "test": "jest",
-    "storybook": "start-storybook -s ./.storybook/public"
+    "storybook": "start-storybook -s ./.storybook/public",
+    "build": "webpack && babel src -d dist/ --source-maps",
+    "develop": "webpack --watch --progress",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -24,7 +28,9 @@
   },
   "homepage": "https://github.com/jutaz/mapbox-gl-js-animations#readme",
   "devDependencies": {
+    "@babel/cli": "^7.6.4",
     "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
     "@storybook/addon-knobs": "^5.2.5",
     "@storybook/html": "^5.2.5",
     "babel-loader": "^8.0.6",
@@ -35,11 +41,15 @@
     "eslint-plugin-standard": "^4.0.1",
     "jest": "^24.9.0",
     "jest-runner-eslint": "^0.7.5",
-    "mapbox-gl": "^1.5.0"
+    "mapbox-gl": "^1.5.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
     "animejs": "^3.1.0"
   },
+  "sideEffects": false,
   "jest": {
     "watchPlugins": [
       "jest-runner-eslint/watch-fix"

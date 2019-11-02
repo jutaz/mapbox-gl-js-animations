@@ -9,7 +9,8 @@ function runAnimation (map) {
     }
 
     layer.metadata.animations.forEach(({ rules, variables, paint }) => {
-      const vars = { ...variables }
+      // Grab a local copy.
+      const vars = Object.assign({}, variables);
       const paintEntries = Object.entries(paint)
       const varKeys = Object.keys(vars)
 
@@ -22,12 +23,12 @@ function runAnimation (map) {
         }
 
         for (var i = 0; i < varKeys.length; i++) {
+          const expr = ['let', varKeys[i], ['literal', vars[varKeys[i]]]]
+
           if (def.length === 0) {
-            ref.push('let', varKeys[i], ['literal', vars[varKeys[i]]])
+            ref.push(...expr)
             continue
           }
-
-          const expr = ['let', varKeys[i], ['literal', vars[varKeys[i]]]]
 
           ref.push(expr)
 
@@ -40,10 +41,9 @@ function runAnimation (map) {
       }
 
       animations.push({
-        anime: anime({
-          targets: vars,
-          ...vars,
-          ...rules,
+        anime: anime(Object.assign({
+          targets: vars
+        }, vars, rules, {
           // Always force autoplay to `false`.
           autoplay: false,
           update: () => {
@@ -54,7 +54,7 @@ function runAnimation (map) {
               })
             }
           }
-        })
+        }))
       })
     })
   })
