@@ -1,5 +1,5 @@
-const path = require('path');
-const nodeExternals = require('webpack-node-externals');
+const path = require('path')
+const nodeExternals = require('webpack-node-externals')
 
 module.exports = {
   module: {
@@ -15,7 +15,7 @@ module.exports = {
   },
   mode: process.env.NODE_ENV || 'development',
   devtool: process.env.NODE_ENV === 'production' ? 'source-map' : 'cheap-module-eval-source-map',
-  externals: [nodeExternals({importType: 'umd'})],
+  externals: [nodeExternals({ importType: 'umd' })],
   entry: path.resolve(__dirname, './src'),
   output: {
     path: path.resolve(__dirname, './dist'),
@@ -23,4 +23,4 @@ module.exports = {
     library: 'mapbox-gl-animations',
     libraryTarget: 'umd'
   }
-};
+}

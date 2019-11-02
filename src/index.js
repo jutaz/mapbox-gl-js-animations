@@ -10,7 +10,7 @@ function runAnimation (map) {
 
     layer.metadata.animations.forEach(({ rules, variables, paint }) => {
       // Grab a local copy.
-      const vars = Object.assign({}, variables);
+      const vars = Object.assign({}, variables)
       const paintEntries = Object.entries(paint)
       const varKeys = Object.keys(vars)
 
