@@ -1,6 +1,6 @@
 {
   "name": "mapbox-gl-js-animations",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Spec & Implementation of animations for Mapbox GL JS",
   "main": "dist/index.js",
   "browser": "dist/mapbox-gl-animations.web.js",

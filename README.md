@@ -2,6 +2,8 @@
 
 Adds animation capabilities to Mapbox GL JS maps! By extending the [style spec](https://docs.mapbox.com/mapbox-gl-js/style-spec/) with [`animejs`](https://github.com/juliangarnier/anime/) some level of animation is possible.
 
+:warning: This package & spec aren't stable just yet - use at your own risk.
+
 ## Usage
 
 Install the library via:
@@ -58,3 +60,10 @@ That's it!
 ## Goal
 
 Trying to blend into Mapbox's ecosystem of the style spec and its expressions to create "native-feeling" for the animations, which should blend in nicely into native expressions. As of a result, this project will be limited by the capabilities of the expressions in the style spec.
+
+## TODO
+
+- [ ] Support feature states for _when_ the animation should trigger.
+- [ ] Document the spec better.
+- [ ] More examples.
+- [ ] Add API outside of the style spec.
